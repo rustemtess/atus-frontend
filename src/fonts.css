@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'GoogleSansRegular';
+    src:  url('./fonts/googlesans/GoogleSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'GoogleSansMedium';
+    src:  url('./fonts/googlesans/GoogleSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'VkSansRegular';
+    src:  url('./fonts/vksans/VK_Sans_Display_Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'VkSansMedium';
+    src:  url('./fonts/vksans/VKSansDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+}

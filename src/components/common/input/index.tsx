@@ -1,3 +1,4 @@
+import { Theme } from '@styles/themeStyle';
 import { InputHTMLAttributes } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
@@ -15,7 +16,7 @@ const Input: React.FC<InputProps> = ({ ...props }) => {
   return (
     <input
       {...props}
-      className="p-2 px-3 rounded border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white"
+      className={`w-full font-vksansregular text-lg p-1.5 px-3 rounded border border-[${Theme.light.borderColor}] dark:border-[${Theme.dark.borderColor}] bg-gray-50 dark:bg-[#1A1A1A] text-gray-900 dark:text-white`}
     />
   );
 };

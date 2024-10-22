@@ -1,3 +1,4 @@
+import { Theme } from '@styles/themeStyle';
 import { createContext, useEffect, useState } from 'react';
 
 /**
@@ -50,6 +51,8 @@ const getInitialTheme = (): 'light' | 'dark' => {
 const updateThemeClass = (theme: 'light' | 'dark') => {
   document.documentElement.classList.remove('light', 'dark');
   document.documentElement.classList.add(theme);
+  document.body.style.backgroundColor =
+    theme === 'dark' ? Theme.dark.background : Theme.light.background;
 };
 
 /**

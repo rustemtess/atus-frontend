@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Atus - University Tracker: an innovative solution for educational institutions that allows you to monitor and analyze student data, improve interaction and the quality of learning."
@@ -16,8 +15,10 @@
     <script>
       (function () {
         const savedTheme = localStorage.getItem('theme');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+        const prefersDarkScheme = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+
         if (savedTheme) {
           document.documentElement.classList.add(savedTheme);
         } else if (prefersDarkScheme) {

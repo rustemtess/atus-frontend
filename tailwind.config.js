@@ -4,6 +4,12 @@ module.exports = {
   darkMode: 'selector',
   theme: {
     extend: {
+      fontFamily: {
+        googlesansregular: ['GoogleSansRegular'],
+        googlesansmedium: ['GoogleSansMedium'],
+        vksansregular: ['VkSansRegular'],
+        vksansmedium: ['VkSansMedium'],
+      },
       colors: {
         light: '#ffffff',
         dark: '#000000',
