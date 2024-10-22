@@ -2,19 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Atus - University Tracker: an innovative solution for educational institutions that allows you to monitor and analyze student data, improve interaction and the quality of learning."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
+    <title>Atus - UT</title>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+          document.documentElement.classList.add(savedTheme);
+        } else if (prefersDarkScheme) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+    <style>
+      html {
+        visibility: hidden;
+      }
+      html.light,
+      html.dark {
+        visibility: visible;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="atus"></div>
   </body>
 </html>

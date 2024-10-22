@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "craco-alias": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
@@ -12,8 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "prettier": "npx prettier . --write"
   },
   "eslintConfig": {
@@ -46,6 +47,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react": "^7.37.1",
     "globals": "^15.11.0",
-    "prettier": "3.3.3"
+    "prettier": "3.3.3",
+    "tailwindcss": "^3.4.14"
   }
 }

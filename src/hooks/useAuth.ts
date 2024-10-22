@@ -1,7 +1,21 @@
 import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '@context/AuthContext';
 
-export const useAuth = () => {
+/**
+ * Хук для получения контекста аутентификации.
+ *
+ * Этот хук предоставляет доступ к данным аутентификации и методам,
+ * которые находятся в `AuthProvider`.
+ *
+ * @throws {Error} Если хук используется вне компонента `AuthProvider`.
+ *
+ * @returns {object} Контекст аутентификации, содержащий данные и методы,
+ * связанные с аутентификацией (например, `user`, `login`, `logout`).
+ *
+ * @example
+ * const { user, login, logout } = useAuth();
+ */
+const useAuth = () => {
   const context = useContext(AuthContext);
 
   if (!context) {
@@ -10,3 +24,5 @@ export const useAuth = () => {
 
   return context;
 };
+
+export default useAuth;
