@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import finger from '@fingerprintjs/fingerprintjs';
 
 /**
  * Тип данных для контекста аутентификации.
@@ -7,11 +8,13 @@ import { createContext, useState } from 'react';
  * @property {boolean} isAuthenticated - Флаг, указывающий, аутентифицирован ли пользователь
  * @property {() => void} login - Функция для аутентификации пользователя
  * @property {() => void} logout - Функция для выхода пользователя из системы
+ * @property {() => Promise<string>} getVistorId - Стрелочная асинхронная функция для получения отпечатка пользователя
  */
 interface AuthContextType {
   isAuthenticated: boolean;
   login: () => void;
   logout: () => void;
+  getVistorId: () => Promise<string>; 
 }
 
 /**
@@ -44,7 +47,10 @@ interface AuthProviderProps {
  * @returns {JSX.Element} - Компонент, который предоставляет контекст аутентификации дочерним компонентам.
  */
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    const token: string = localStorage.getItem('token');
+    return (token) ? true : false;
+  });
 
   /**
    * Функция для аутентификации пользователя.
@@ -58,12 +64,31 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
    */
   const logout = () => setIsAuthenticated(false);
 
+  /**
+   * Стрелочная асинхронная функция для получения visitorId
+   * (отпечаток браузера) пользователя
+   * 
+   * @returns {Promise<string>}
+   * 
+   * @example
+   * (async () => {
+   *  const visitorId = await getVisitorId();
+   *  return visitorId;
+   * })
+   */
+  const getVistorId = async () => {
+    let visitorId: string = '';
+    await finger.load().then(fp => fp.get()).then(result => visitorId = result.visitorId)
+    return visitorId;
+  };
+
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         login,
         logout,
+        getVistorId
       }}
     >
       {children}

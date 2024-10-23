@@ -1,4 +1,3 @@
-import { Theme } from '@styles/themeStyle';
 import { createContext, useEffect, useState } from 'react';
 
 /**
@@ -52,7 +51,7 @@ const updateThemeClass = (theme: 'light' | 'dark') => {
   document.documentElement.classList.remove('light', 'dark');
   document.documentElement.classList.add(theme);
   document.body.style.backgroundColor =
-    theme === 'dark' ? Theme.dark.background : Theme.light.background;
+    theme === 'dark' ? 'rgb(10, 10, 10)': 'rgb(255,255,255)';
 };
 
 /**
@@ -61,7 +60,7 @@ const updateThemeClass = (theme: 'light' | 'dark') => {
 const updateMetaThemeColor = (theme: 'light' | 'dark') => {
   const metaThemeColor = document.querySelector("meta[name='theme-color']");
   if (metaThemeColor) {
-    const newColor = theme === 'light' ? '#ffffff' : '#000000'; // Установите ваши цвета
+    const newColor = theme === 'light' ? '#ffffff' : '#000000';
     metaThemeColor.setAttribute('content', newColor);
   }
 };

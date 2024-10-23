@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import LoginPage from '@pages/Login';
 import useAuth from '@hooks/useAuth';
+import Home from '@pages/Home';
 
 /**
  * Компонент AppRoutes отвечает за маршрутизацию приложения.
@@ -18,10 +19,10 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route
-        path="/profile"
+        path="/home"
         element={
           <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <h1>Profile</h1>
+            <Home />
           </ProtectedRoute>
         }
       />
