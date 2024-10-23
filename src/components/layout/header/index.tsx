@@ -5,7 +5,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="fixed max-w-[1400px] w-full flex p-4 justify-between items-center backdrop-blur-sm">
+    <header className="z-10 fixed max-w-[1400px] w-full flex p-4 justify-between items-center backdrop-blur-sm">
       <div></div>
       <div className='flex gap-2'>
         { /** <button
